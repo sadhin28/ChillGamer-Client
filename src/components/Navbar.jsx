@@ -46,12 +46,13 @@ function Header() {
     },
     {
         label: "My-Reviews",
-        link: "/addreviews",
+        link: "/myreviwe",
     },
     {
         label: "Game Watch List",
-        link: "/addreviews",
+        link: "/gamewatchlist",
     },
+    
   
         
     
