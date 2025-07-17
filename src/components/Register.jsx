@@ -18,7 +18,7 @@ const Register = () => {
     const password = e.target.password.value
     const name = e.target.name.value
     const data ={name,email}
-    fetch('https://mjs-company-server.onrender.com/user',{
+    fetch('http://localhost:5000/user',{
             method:"POST",
             headers:{
                 'content-type':'application/json'
@@ -80,7 +80,7 @@ const Register = () => {
         <form onSubmit={handleSubmit}>
           <div className="mb-6">
             <label
-              htmlFor="email"
+              htmlFor="name"
               className="block text-sm font-medium text-gray-700"
             >
               User name
