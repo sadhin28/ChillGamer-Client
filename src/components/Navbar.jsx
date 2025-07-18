@@ -21,7 +21,6 @@ import { cn } from "../lib/utils";
 import Overlay from "../ui/Overlay";
 import useMobile from "../lib/ForMobile";
 import { AuthContext } from "../provider/AuthProvider";
-import { img } from "motion/react-client";
 
 const COLORS_TOP = ["#29C48BFF", "#DF1767FF", "#184B9BFF", "#AC0BC5FF", "#949823FF", "#335F56FF"];
 //end
@@ -30,7 +29,7 @@ const COLORS_TOP = ["#29C48BFF", "#DF1767FF", "#184B9BFF", "#AC0BC5FF", "#949823
 
 function Header() {
     const { user, Logout } = useContext(AuthContext)
-
+    
     const navItems = [
         { label: "Home", link: "/" },
         { label: "All-Reviews", link: "/allreviews" },
@@ -171,8 +170,7 @@ function Header() {
                         user ? <img className="rounded-full w-10" src={user.photoURL} alt="" /> : <img className="rounded-full w-10" src={userLogo} ></img>
                     }
                     {
-                        user && user?.email ? <Link to="/" onClick={Logout} className="text-blue-200 font-bold border border-2xl p-1 rounded">Log-Out</Link>
-                         :
+                        user && user?.email ? <Link to="/" onClick={Logout} className="text-blue-200 font-bold border border-2xl p-1 rounded">Log-Out</Link>:
                          <Link to='/login' className="text-blue-200 font-bold border border-2xl p-1 rounded">Log-In</Link>
                     }
                     <Link to='/register' className="text-blue-200 font-bold border border-2xl p-1 rounded">Register</Link>

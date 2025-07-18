@@ -9,9 +9,10 @@ import Swal from "sweetalert2";
 
 const Register = () => {
      const navigate = useNavigate()
-  const { setUser, CreateNewUser,Updateprofiel} = useContext(AuthContext)
-   const [imageBase64, setImageBase64] = useState('');
-     const handleImageChange = (e) => {
+  const { setuser, CreateNewUser,updateUserProfile} = useContext(AuthContext)
+   const [imageBase64, setImageBase64] = useState(null);
+  
+   const handleImageChange = (e) => {
         const file = e.target.files[0];
         const reader = new FileReader();
     
@@ -23,13 +24,15 @@ const Register = () => {
           reader.readAsDataURL(file);
         }
       };
+
   const handleSubmit = (e) => {
     e.preventDefault()
     const email = e.target.email.value
     const password = e.target.password.value
     const name = e.target.name.value
-    const photo =imageBase64
-    const data ={name,email,photo}
+    const photoUrl =e.target.photo.value
+    
+    const data ={name,email,photoUrl}
     fetch('http://localhost:5000/user',{
             method:"POST",
             headers:{
@@ -39,7 +42,7 @@ const Register = () => {
            })
            .then(res=>res.json())
            .then(data=>{
-            console.log(data)
+      
             
                Swal.fire({
                  title:'Success',
@@ -47,7 +50,7 @@ const Register = () => {
                  icon:'success',
                  confirmButtonText:'Cool'
                })
-               navigate('/')
+             
                
             
            })
@@ -59,34 +62,32 @@ const Register = () => {
                  confirmButtonText:'Cool'
                })
            })
-    CreateNewUser(email, password)
-      .then(res => {
-       setUser(res.user)
-       //update profile
-       Updateprofiel(name,photo)
-       .then(result=>{
-        toast.success('Register Successfull')
-        setUser(result.user) 
-      })
-       .catch(error =>{
-        toast.error(error.message)
-       })
+        CreateNewUser(email, password)
+        .then((result) => {
+            const user = result.user;
+            setuser(user);
+            toast.success("Successfully Registered", {
+                position: "top-center",
+                autoClose: 2000,
+            });
 
-       navigate('/')
-      })
-      .then(error => {
-        toast.error(error.message)
-      })
-
+            updateUserProfile(name, photoUrl)
+            .then(() => {
+               
+                navigate("/");
+                toast.success("Profile updated successfully")
+            })
+    });
   }
+  
    const auth = getAuth(app)
   const provider = new GoogleAuthProvider()
   const handelLoginWithGoogle = () => {
     
     signInWithPopup(auth, provider)
       .then(res => {
-        setUser(res.user)
-        
+        setuser(res.user)
+         res.user && navigate('/')
       })
       .catch(error => {
        
@@ -94,6 +95,7 @@ const Register = () => {
      
      
   }
+
     return (
        <div className="flex items-center justify-center min-h-screen bg-gray-100">
       <div className="w-full max-w-md p-8 bg-white rounded-lg shadow-md">
@@ -136,6 +138,23 @@ const Register = () => {
             />
           </div>
           <div className="mb-6">
+            <label
+              htmlFor="photo Url"
+              className="block text-sm font-medium text-gray-700"
+            >
+              Photo Url
+            </label>
+            <input
+              type="text"
+              id="text"
+
+              name='photo'
+              className="w-full px-4 py-2 mt-1 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+              placeholder="Enter Photo url"
+              required
+            />
+          </div>
+          {/* <div className="mb-6">
              <label >Select Your Image</label>
                         <input
                             type="file"
@@ -145,7 +164,7 @@ const Register = () => {
                             className="w-full border p-2 rounded"
                             required
                         />
-          </div>
+          </div> */}
           <div className="mb-6">
             <label
               htmlFor="password"

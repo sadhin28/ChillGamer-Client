@@ -16,14 +16,22 @@ const AuthProvider = ({children}) => {
         setloading(false);
         return createUserWithEmailAndPassword(auth,email,password)
     }
-    //updateprofile
-    const Updateprofiel=(name,photo)=>{
-        updateProfile(auth.currentUser,{
-             displayName: name, 
-             photoURL: photo
-        })
-    }
+ 
 
+     // Profile update
+    const updateUserProfile = (name, photo) => {
+        return updateProfile(auth.currentUser, {
+            displayName: name,
+            photoURL: photo,
+        }).then(() => {
+
+            setuser({
+                ...auth.currentUser,
+                displayName: name,
+                photoURL: photo,
+            });
+        });
+    };
       useEffect(()=>{
      const  unsubscribe =  onAuthStateChanged(auth,currentUser=>{
             setuser(currentUser)
@@ -53,7 +61,7 @@ const AuthProvider = ({children}) => {
         user,
         setuser,
         CreateNewUser,
-        Updateprofiel,
+        updateUserProfile,
         Logout,
         login,
         
