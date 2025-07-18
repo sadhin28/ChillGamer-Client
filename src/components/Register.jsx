@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { AuthContext } from "../provider/AuthProvider";
 import { Link, useNavigate } from "react-router-dom";
 import { toast, ToastContainer } from "react-toastify";
@@ -9,15 +9,27 @@ import Swal from "sweetalert2";
 
 const Register = () => {
      const navigate = useNavigate()
-  const { setUser, CreateNewUser} = useContext(AuthContext)
-
-
+  const { setUser, CreateNewUser,Updateprofiel} = useContext(AuthContext)
+   const [imageBase64, setImageBase64] = useState('');
+     const handleImageChange = (e) => {
+        const file = e.target.files[0];
+        const reader = new FileReader();
+    
+        reader.onloadend = () => {
+          setImageBase64(reader.result); // base64 string
+        };
+    
+        if (file) {
+          reader.readAsDataURL(file);
+        }
+      };
   const handleSubmit = (e) => {
     e.preventDefault()
     const email = e.target.email.value
     const password = e.target.password.value
     const name = e.target.name.value
-    const data ={name,email}
+    const photo =imageBase64
+    const data ={name,email,photo}
     fetch('http://localhost:5000/user',{
             method:"POST",
             headers:{
@@ -49,6 +61,17 @@ const Register = () => {
            })
     CreateNewUser(email, password)
       .then(res => {
+       setUser(res.user)
+       //update profile
+       Updateprofiel(name,photo)
+       .then(result=>{
+        toast.success('Register Successfull')
+        setUser(result.user) 
+      })
+       .catch(error =>{
+        toast.error(error.message)
+       })
+
        navigate('/')
       })
       .then(error => {
@@ -66,7 +89,7 @@ const Register = () => {
         
       })
       .catch(error => {
-         navigate('/')
+       
       })
      
      
@@ -111,6 +134,17 @@ const Register = () => {
               placeholder="Enter your Email"
               required
             />
+          </div>
+          <div className="mb-6">
+             <label >Select Your Image</label>
+                        <input
+                            type="file"
+                            name="image_url"
+                            accept="image/*"
+                            onChange={handleImageChange}
+                            className="w-full border p-2 rounded"
+                            required
+                        />
           </div>
           <div className="mb-6">
             <label
