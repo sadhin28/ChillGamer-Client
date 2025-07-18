@@ -89,13 +89,13 @@ function Header() {
             }}
             className={cn(
 
-                "py-5 k px-5  text-white  z-20 transition-shadow duration-300",
+                "py-5  px-5  text-white  z-20 transition-shadow duration-300",
                 isSticky ? "sticky bg-black text-white  top-0 shadow-sm" : "",
                 isMobile ? "shadow-sm  px-5" : ""
             )}
         >
 
-            <div className="width px-10 items-center padding-x flex gap-10 justify-between">
+            <div className="width  items-center padding-x flex gap-10 justify-between">
                 <div className="flex  gap-5 justify-center  justify-items-center">
 
                     <div className="font-semibold text-lg text-nowrap">Chill Gamer</div>
@@ -167,7 +167,7 @@ function Header() {
 
                 <div className="flex items-center gap-5 ">
                     {
-                        user ? <img className="rounded-full w-10" src={user.photoURL} alt="" /> : <img className="rounded-full w-10" src={userLogo} ></img>
+                        user ? <img className="rounded-full h-10 w-10" src={user.photoURL} alt="" /> : <img className="rounded-full w-10" src={userLogo} ></img>
                     }
                     {
                         user && user?.email ? <Link to="/" onClick={Logout} className="text-blue-200 font-bold border border-2xl p-1 rounded">Log-Out</Link>:
