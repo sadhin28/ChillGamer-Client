@@ -24,7 +24,7 @@ const Lgoing = () => {
                 const lastSignInTime = result?.user?.metadata?.lastSignInTime
                 const loginInfo = { email, lastSignInTime }
                 //update user login time
-                fetch('http://localhost:5000/user', {
+                fetch('https://chillgamer-server.onrender.com/user', {
                     method: "PATCH",
                     headers: {
                         'content-type': 'application/json'

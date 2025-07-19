@@ -33,7 +33,7 @@ const Register = () => {
     const photoUrl =e.target.photo.value
     
     const data ={name,email,photoUrl}
-    fetch('http://localhost:5000/user',{
+    fetch('https://chillgamer-server.onrender.com/user',{
             method:"POST",
             headers:{
                 'content-type':'application/json'

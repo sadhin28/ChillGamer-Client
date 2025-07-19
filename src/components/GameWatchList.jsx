@@ -12,7 +12,7 @@ const GameWatchList = () => {
     );
 
     const handleDeleteWL = (_id) => {
-        fetch(`http://localhost:5000/watch_list/${_id}`, {
+        fetch(`https://chillgamer-server.onrender.com/watch_list/${_id}`, {
             method: 'DELETE'
         })
         .then(res => res.json())

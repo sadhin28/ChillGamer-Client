@@ -25,12 +25,12 @@ const router = createBrowserRouter([
             {
                 path:'/allreviews',
                 element:<AllReviews></AllReviews>,
-                loader:()=>fetch('http://localhost:5000/reviews')
+                loader:()=>fetch('https://chillgamer-server.onrender.com/reviews')
             },
              {
                 path: "/ReviewDetails/:id",
                 element:<ReviewDetails></ReviewDetails>,
-                loader: ({ params }) => fetch('http://localhost:5000/reviews')
+                loader: ({ params }) => fetch('https://chillgamer-server.onrender.com/reviews')
                     .then(res => res.json())
                     .then(reviews => reviews.find(review => review._id === params.id))
             },
@@ -41,17 +41,17 @@ const router = createBrowserRouter([
             {
                 path:'/myreviwe',
                 element:<Privateroute><MyReviews></MyReviews></Privateroute>,
-                 loader: () => fetch('http://localhost:5000/reviews'),
+                 loader: () => fetch('https://chillgamer-server.onrender.com/reviews'),
             },
             {
                 path:'/gamewatchlist',
                 element:<Privateroute><GameWatchList></GameWatchList></Privateroute>,
-                loader:()=>fetch('http://localhost:5000/watch_list')
+                loader:()=>fetch('https://chillgamer-server.onrender.com/watch_list')
             },
             {
                 path:'/updateReview/:id',
                 element:<Privateroute><Updaterivew></Updaterivew></Privateroute>,
-                 loader: ({ params }) => fetch(`http://localhost:5000/reviews/${params.id}`)
+                 loader: ({ params }) => fetch(`https://chillgamer-server.onrender.com/reviews/${params.id}`)
             },
             
             {

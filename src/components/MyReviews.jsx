@@ -22,7 +22,7 @@ const MyReviews = () => {
             confirmButtonText: "Confirm Delete"
         }).then((result) => {
             if (result.isConfirmed) {
-                fetch(`http://localhost:5000/reviews/${_id}`, {
+                fetch(`https://chillgamer-server.onrender.com/reviews/${_id}`, {
                     method: 'DELETE'
                 })
                     .then(res => res.json())
@@ -43,6 +43,7 @@ const MyReviews = () => {
 
     return (
         <div className="w-11/12 mt-5 mb-5 mx-auto min-h-screen">
+            <h1 className="font-bold md:text-2xl text-xl lg:text-4xl mt-10 mb-10 text-center">MY Reviews</h1>
             {userReviews.length > 0 ? (
                 <div className=" grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-5">
                     {

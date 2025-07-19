@@ -2,13 +2,13 @@
 import { initializeApp } from "firebase/app";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyCHPrrIi7p2vz7EKJiKiTwNct4iNBmv1ns",
-  authDomain: "chill-gemer.firebaseapp.com",
-  projectId: "chill-gemer",
-  storageBucket: "chill-gemer.firebasestorage.app",
-  messagingSenderId: "493971188781",
-  appId: "1:493971188781:web:3dd7607ed25fb989835ca4",
-  measurementId: "G-CVHXVJD6CJ"
+  apiKey:              import.meta.env.VITE_apiKey,
+  authDomain:          import.meta.env.VITE_authDomain,
+  projectId:           import.meta.env. VITE_projectId,
+  storageBucket:       import.meta.env. VITE_storageBucket,
+  messagingSenderId:   import.meta.env.VITE_messagingSenderId,
+  appId:               import.meta.env.VITE_appId,
+  measurementId:       import.meta.env.VITE_measurementId
 };
 
 const app = initializeApp(firebaseConfig);

@@ -24,7 +24,7 @@ const ReviewDetails = () => {
         const loggedUserEmail = user.email;
         const newWatchListData = { game_image, game_title, review, rating, publish_year, genres, user_email, user_name, loggedUserEmail, loggedUserName };
 
-        fetch('http://localhost:5000/watch_list', {
+        fetch('https://chillgamer-server.onrender.com/watch_list', {
             method: 'post',
             headers: {
                 'content-type': 'application/json'
@@ -60,7 +60,7 @@ const ReviewDetails = () => {
                 <div className="card rounded-tr-none rounded-bl-none rounded-tl-3xl rounded-br-3xl w-full  shrink-0 shadow-lg bg-[url('/assets/gaming1.jpg')] bg-cover bg-center shadow-red-400 p-5">
                     <div className='mt-2 mb-2'>
                         <Link to="/allreviews" className=" text-lg font-semibold text-gray-700 hover:underline">
-                            ← Back to home
+                            ← Back 
                         </Link>
                     </div>
                     <img src={game_image} alt="game cover image" className="rounded-tr-none rounded-bl-none rounded-tl-3xl rounded-br-3xl w-full aspect-[5/3] object-cover" />

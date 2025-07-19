@@ -34,7 +34,7 @@ const AddReview = () => {
         const user_name = e.target.name.value;
         const newReview = { game_image, game_title, review, rating, publish_year, genres, user_email, user_name }
 
-        fetch('http://localhost:5000/reviews', {
+        fetch('https://chillgamer-server.onrender.com/reviews', {
             method: "POST",
             headers: {
                 'content-type': 'application/json'
