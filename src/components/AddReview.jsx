@@ -24,22 +24,22 @@ const AddReview = () => {
     };
     const handleSubmit = (e) => {
         e.preventDefault();
-        const allData = {
-            name: e.target.name.value,
-            price: e.target.price.value,
-            Watt: e.target.Watt.value,
-            Lumen: e.target.Lumen.value,
-            gurantee: e.target.gurantee.value,
-            details: e.target.details.value,
-            photo: imageBase64
-        }
+       const game_image = imageBase64;
+        const game_title = e.target.title.value;
+        const review = e.target.review.value;
+        const rating = e.target.rating.value;
+        const publish_year = e.target.year.value;
+        const genres = e.target.genres.value;
+        const user_email = e.target.email.value;
+        const user_name = e.target.name.value;
+        const newReview = { game_image, game_title, review, rating, publish_year, genres, user_email, user_name }
 
-        fetch('https://mjs-company-server.onrender.com/ledbulbs', {
+        fetch('http://localhost:5000/reviews', {
             method: "POST",
             headers: {
                 'content-type': 'application/json'
             },
-            body: JSON.stringify(allData)
+            body: JSON.stringify(newReview)
         })
             .then(res => res.json())
             .then(data => {
@@ -68,10 +68,10 @@ const AddReview = () => {
     const data = [
 
         { name: 'title', label: 'Game Title', placeholder: 'Enter game title' },
-        { name: 'review', label: 'Game Review', placeholder: 'Enter game review' },
-        { name: 'rating', label: 'Game Details', placeholder: 'Enter game rating' },
+        { name: 'review', label: 'Game Details', placeholder: 'Enter game review' },
+        { name: 'rating', label: 'Game Rating', placeholder: 'Enter game rating' },
         { name: 'year', label: 'Publish Year', placeholder: 'Enter publish year' },
-        { name: 'genres', label: 'Game Genres', placeholder: 'Enter Genres' },
+        
 
     ]
 
@@ -109,6 +109,18 @@ const AddReview = () => {
                         }
                     </div>
                     {/* user  name */}
+                      {/* Genres */}
+                    <div className="form-control">
+                        <label className="block mb-1 font-medium">
+                           Game Genres
+                        </label>
+                        <select className="w-full px-4 py-2 border rounded focus:outline-none focus:ring-2 focus:ring-[#d6a86b]" name="genres" required>
+                            <option disabled selected value="">Genres</option>
+                            <option value="Action">Action</option>
+                            <option value="RPG">RPG</option>
+                            <option value="Adventure">Adventure</option>
+                        </select>
+                    </div>
                     <div>
                           <label className="block mb-1 font-medium">User Name</label>
                     <input
