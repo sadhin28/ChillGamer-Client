@@ -10,6 +10,7 @@ import Lgoing from "../components/Lgoing";
 import Register from "../components/Register";
 import Privateroute from "./Privateroute";
 import ReviewDetails from "../components/ReviewDetails";
+import Updaterivew from "../components/Updaterivew";
 
 const router = createBrowserRouter([
     {
@@ -39,12 +40,19 @@ const router = createBrowserRouter([
             },
             {
                 path:'/myreviwe',
-                element:<Privateroute><MyReviews></MyReviews></Privateroute>
+                element:<Privateroute><MyReviews></MyReviews></Privateroute>,
+                 loader: () => fetch('http://localhost:5000/reviews'),
             },
             {
                 path:'/gamewatchlist',
                 element:<Privateroute><GameWatchList></GameWatchList></Privateroute>
             },
+            {
+                path:'/updateReview/:id',
+                element:<Privateroute><Updaterivew></Updaterivew></Privateroute>,
+                 loader: ({ params }) => fetch(`http://localhost:5000/reviews/${params.id}`)
+            },
+            
             {
                 path:"/login",
                 element:<Lgoing></Lgoing>

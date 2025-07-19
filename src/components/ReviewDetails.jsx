@@ -1,7 +1,7 @@
 import { useContext, useEffect, useState } from 'react';
 import { AuthContext } from '../provider/AuthProvider';
 import LoadingSpiner from './LoadingSpiner';
-import { toast, ToastContainer } from 'react-toastify';
+import { toast} from 'react-toastify';
 import ReactStars from 'react-stars';
 import { Link, useLoaderData } from 'react-router-dom';
 
@@ -60,7 +60,7 @@ const ReviewDetails = () => {
                
                 <div className="card rounded-tr-none rounded-bl-none rounded-tl-3xl rounded-br-3xl w-full  shrink-0 shadow-lg bg-[url('/assets/gaming1.jpg')] bg-cover bg-center shadow-red-400 p-5">
                     <div className='mt-2 mb-2'>
-                         <Link to="/" className=" text-lg font-semibold text-gray-700 hover:underline">
+                         <Link to="/allreviews" className=" text-lg font-semibold text-gray-700 hover:underline">
                     ← Back to home
                 </Link>
                     </div>

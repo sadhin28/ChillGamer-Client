@@ -39,7 +39,7 @@ const AllReviews = () => {
 
   return (
     <div>
-      <div className="w-11/12 mt-5 mx-auto min-h-screen">
+      <div className="w-11/12 mt-5 mb-5 mx-auto min-h-screen">
         {/* Dropdowns */}
         <div className="flex gap-4 relative z-20">
           {/* Sort Dropdown */}
