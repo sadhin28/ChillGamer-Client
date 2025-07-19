@@ -81,8 +81,8 @@ const Updaterivew = () => {
     return (
         <div className="min-h-screen flex items-center justify-center bg-[#f4f3f0] px-4 py-8">
             <div className="w-full max-w-4xl bg-white shadow-md rounded-lg p-10 relative">
-                <Link to="/" className="absolute top-4 left-4 text-lg font-semibold text-gray-700 hover:underline">
-                    ← Back to home
+                <Link to="/myreviwe" className="absolute top-4 left-4 text-lg font-semibold text-gray-700 hover:underline">
+                    ← Back
                 </Link>
 
                 <h2 className="text-3xl font-bold text-center text-[#374151] mb-2">Update Review</h2>
