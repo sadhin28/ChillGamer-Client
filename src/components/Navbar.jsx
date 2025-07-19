@@ -29,7 +29,7 @@ const COLORS_TOP = ["#29C48BFF", "#DF1767FF", "#184B9BFF", "#AC0BC5FF", "#949823
 
 function Header() {
     const { user, Logout } = useContext(AuthContext)
-    
+
     const navItems = [
         { label: "Home", link: "/" },
         { label: "All-Reviews", link: "/allreviews" },
@@ -81,7 +81,7 @@ function Header() {
 
     return (
 
-        <motion.header
+        <header
 
             style={{
                 backgroundImage,
@@ -90,7 +90,7 @@ function Header() {
             className={cn(
 
                 "py-5  px-5  text-white  z-20 transition-shadow duration-300",
-                isSticky ? "sticky bg-black text-white  top-0 shadow-sm" : "",
+                isSticky ? "fixed top-0 left-0 w-full bg-[#1a080c] backdrop-blur-md shadow-md z-50" : "bg-[#1a080c]",
                 isMobile ? "shadow-sm  px-5" : ""
             )}
         >
@@ -170,14 +170,14 @@ function Header() {
                         user ? <img className="rounded-full h-10 w-10" src={user.photoURL} alt="" /> : <img className="rounded-full w-10" src={userLogo} ></img>
                     }
                     {
-                        user && user?.email ? <Link to="/" onClick={Logout} className="text-blue-200 font-bold border border-2xl p-1 rounded">Log-Out</Link>:
-                         <Link to='/login' className="text-blue-200 font-bold border border-2xl p-1 rounded">Log-In</Link>
+                        user && user?.email ? <Link to="/" onClick={Logout} className="text-blue-200 font-bold border border-2xl p-1 rounded">Log-Out</Link> :
+                            <Link to='/login' className="text-blue-200 font-bold border border-2xl p-1 rounded">Log-In</Link>
                     }
                     <Link to='/register' className="text-blue-200 font-bold border border-2xl p-1 rounded">Register</Link>
                 </div>
             </div>
 
-        </motion.header>
+        </header>
 
 
     );

@@ -20,7 +20,7 @@ const Lgoing = () => {
 
         login(email, password)
             .then(result => {
-
+                
                 const lastSignInTime = result?.user?.metadata?.lastSignInTime
                 const loginInfo = { email, lastSignInTime }
                 //update user login time
@@ -37,7 +37,7 @@ const Lgoing = () => {
 
                     })
 
-
+                  result.user && navigate('/')
             })
             .catch(error => {
                 console.log(error)
