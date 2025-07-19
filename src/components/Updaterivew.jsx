@@ -50,11 +50,11 @@ const Updaterivew = () => {
 
                 Swal.fire({
                     title: 'Success',
-                    text: "Add Review Item Successfully",
+                    text: "Update Review Item Successfully",
                     icon: 'success',
                     confirmButtonText: 'Cool'
                 })
-                navigate('/')
+                navigate('/myreviwe')
 
 
             })
