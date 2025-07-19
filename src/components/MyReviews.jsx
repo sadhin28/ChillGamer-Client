@@ -22,7 +22,7 @@ const MyReviews = () => {
             confirmButtonText: "Confirm Delete"
         }).then((result) => {
             if (result.isConfirmed) {
-                fetch(`https://chill-game-server-tau.vercel.app/reviews/${_id}`, {
+                fetch(`http://localhost:5000/reviews/${_id}`, {
                     method: 'DELETE'
                 })
                     .then(res => res.json())
@@ -36,12 +36,13 @@ const MyReviews = () => {
                             });
                         }
                     })
+                    
             }
         });
     }
 
     return (
-        <div className="w-11/12 mt-5 mx-auto min-h-screen">
+        <div className="w-11/12 mt-5 mb-5 mx-auto min-h-screen">
             {userReviews.length > 0 ? (
                 <div className=" grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-5">
                     {
