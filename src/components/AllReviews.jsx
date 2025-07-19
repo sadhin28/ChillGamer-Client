@@ -133,7 +133,7 @@ const AllReviews = () => {
                 <ReactStars count={5} value={review.rating} size={20} edit={false} activeColor="#ffd700" />
                 <p className="text-base font-medium flex-grow">Genres: {review.genres}</p>
                 <p className="text-base font-medium flex-grow">Publish Year: {review.publish_year}</p>
-                <Link to={`/ReviewDetails/${review._id}`} className="btn mt-2 btn-sm btn-neutral">
+                <Link to={`/ReviewDetails/${review._id}`} className="border w-30 text-center rounded-xl hover:bg-green-200 mt-2  btn-neutral">
                   Explore Details
                 </Link>
               </div>

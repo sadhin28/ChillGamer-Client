@@ -29,7 +29,7 @@ const router = createBrowserRouter([
              {
                 path: "/ReviewDetails/:id",
                 element:<ReviewDetails></ReviewDetails>,
-                loader: ({ params }) => fetch('https://chill-game-server-tau.vercel.app/reviews')
+                loader: ({ params }) => fetch('http://localhost:5000/reviews')
                     .then(res => res.json())
                     .then(reviews => reviews.find(review => review._id === params.id))
             },
