@@ -9,6 +9,7 @@ import GameWatchList from "../components/GameWatchList";
 import Lgoing from "../components/Lgoing";
 import Register from "../components/Register";
 import Privateroute from "./Privateroute";
+import ReviewDetails from "../components/ReviewDetails";
 
 const router = createBrowserRouter([
     {
@@ -22,7 +23,15 @@ const router = createBrowserRouter([
             },
             {
                 path:'/allreviews',
-                element:<AllReviews></AllReviews>
+                element:<AllReviews></AllReviews>,
+                loader:()=>fetch('http://localhost:5000/reviews')
+            },
+             {
+                path: "/ReviewDetails/:id",
+                element:<ReviewDetails></ReviewDetails>,
+                loader: ({ params }) => fetch('https://chill-game-server-tau.vercel.app/reviews')
+                    .then(res => res.json())
+                    .then(reviews => reviews.find(review => review._id === params.id))
             },
             {
                 path:'/addreviews',
