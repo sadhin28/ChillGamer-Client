@@ -47,7 +47,7 @@ const AddReview = () => {
 
                 Swal.fire({
                     title: 'Success',
-                    text: "Add Bulb Item Successfully",
+                    text: "Add Review Item Successfully",
                     icon: 'success',
                     confirmButtonText: 'Cool'
                 })
