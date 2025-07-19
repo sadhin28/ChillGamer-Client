@@ -70,8 +70,8 @@ const AddReview = () => {
         { name: 'title', label: 'Game Title', placeholder: 'Enter game title' },
         { name: 'review', label: 'Game Review', placeholder: 'Enter game review' },
         { name: 'rating', label: 'Game Details', placeholder: 'Enter game rating' },
-        { name: 'year', label: 'Publish year', placeholder: 'Enter publish year' },
-        { name: 'genres', label: 'Genres', placeholder: 'Enter Genres' },
+        { name: 'year', label: 'Publish Year', placeholder: 'Enter publish year' },
+        { name: 'genres', label: 'Game Genres', placeholder: 'Enter Genres' },
 
     ]
 
@@ -98,11 +98,11 @@ const AddReview = () => {
                     <div>
                         {
                             data.map(data => <div key={data.name}>
-                                <label className="block mb-1 font-medium">{data.label}</label>
+                                <label className="block  mb-1 font-medium">{data.label}</label>
                                 <input
                                     name={data.name}
                                     placeholder={data.placeholder}
-                                    className="w-full px-4 py-2 border rounded focus:outline-none focus:ring-2 focus:ring-[#d6a86b]"
+                                    className="w-full px-4 py-2 border  rounded focus:outline-none focus:ring-2 focus:ring-[#d6a86b]"
                                 />
 
                             </div>)
@@ -120,7 +120,7 @@ const AddReview = () => {
                     </div>
                     {/* user email */}
                     <div>
-                          <label className="block mb-1 font-medium">User Name</label>
+                          <label className="block mb-1 font-medium">User Email</label>
                     <input
                         name='email'
                         type='email'
