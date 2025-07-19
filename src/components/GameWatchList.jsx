@@ -26,8 +26,8 @@ const GameWatchList = () => {
     return (
         <>
             {watchListData.length > 0 ? (
-                <div className="w-11/12 mx-auto mt-10 min-h-screen flex">
-                    <div className="w-full rounded-3xl overflow-hidden shadow-xl bg-black/70 backdrop-blur-lg p-6 bg-[url('/assets/gaming1.jpg')] bg-cover bg-center">
+                <div className="min-h-screen flex">
+                    <div className="w-full   overflow-hidden shadow-xl bg-gradient-to-br from-black via-gray-900 to-gray-800 px-5 py-5">
                         <h2 className="text-3xl font-bold text-white mb-6">My Game Watchlist</h2>
                         <div className="overflow-x-auto">
                             <table className="min-w-full text-white text-sm md:text-base border-separate border-spacing-y-2">
