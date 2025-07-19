@@ -74,7 +74,7 @@ const AddReview = () => {
         
 
     ]
-
+    
     return (
         <div className="min-h-screen flex items-center justify-center bg-[#f4f3f0] px-4 py-8">
             <div className="w-full max-w-4xl bg-white shadow-md rounded-lg p-10 relative">
@@ -126,7 +126,7 @@ const AddReview = () => {
                     <input
                         name='name'
                         placeholder='User name'
-                        value={user.displayName}
+                        value={ user && user.displayName}
                         className="w-full px-4 py-2 border rounded focus:outline-none focus:ring-2 focus:ring-[#d6a86b]"
                     />
                     </div>
@@ -136,15 +136,15 @@ const AddReview = () => {
                     <input
                         name='email'
                         type='email'
-                        value={user.email}
+                        value={user && user.email}
                         className="w-full px-4 py-2 border rounded focus:outline-none focus:ring-2 focus:ring-[#d6a86b]"
                     />
                     </div>
                     <button
                         type="submit"
-                        className="w-full bg-[#d6a86b] hover:bg-[#c99757] text-white font-semibold py-2 px-6 rounded transition-all duration-300"
+                        className="w-full bg-black text-blue-200 font-bold border border-2xl p-1 rounded"
                     >
-                        Add Now
+                        Add Reviews
                     </button>
                 </form>
 
