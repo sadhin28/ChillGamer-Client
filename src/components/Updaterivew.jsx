@@ -46,7 +46,7 @@ const Updaterivew = () => {
         })
             .then(res => res.json())
             .then(data => {
-                console.log(data)
+            
 
                 Swal.fire({
                     title: 'Success',

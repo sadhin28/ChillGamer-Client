@@ -33,14 +33,14 @@ const Lgoing = () => {
                 })
                     .then(res => res.json())
                     .then(data => {
-                        console.log(data)
+                      
 
                     })
 
                   result.user && navigate('/')
             })
             .catch(error => {
-                console.log(error)
+               toast.error(error.message)
             })
     }
 
