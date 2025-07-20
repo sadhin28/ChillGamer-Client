@@ -3,6 +3,8 @@ import { Link, useLoaderData } from "react-router-dom";
 import LoadingSpiner from "./LoadingSpiner";
 import { IoMdArrowDropdown } from "react-icons/io";
 import ReactStars from "react-stars";
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
 const AllReviews = () => {
   const [loading, setLoading] = useState(true);
@@ -14,6 +16,10 @@ const AllReviews = () => {
   const loadReviews = useLoaderData();
 
   useEffect(() => {
+     AOS.init({
+       duration: 1000, // animation duration (in ms)
+       once: true,     // whether animation should happen only once - while scrolling down
+     });
     if (loadReviews) {
       setLoading(false);
     }
@@ -36,9 +42,9 @@ const AllReviews = () => {
     }
     return 0;
   });
-
+  
   return (
-    <div>
+    <div >
       <div className="w-11/12 mt-5 mb-5 mx-auto min-h-screen">
         {/* Dropdowns */}
         <div className="flex gap-4 relative z-20">
@@ -117,9 +123,10 @@ const AllReviews = () => {
         </div>
 
         {/* Cards */}
-        <div className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-5 mt-5">
+        <div  className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-5 mt-5">
           {sortedReviews.map((review) => (
             <div
+             data-aos='zoom-in'
               key={review._id}
               className="rounded-tr-none rounded-bl-none rounded-tl-3xl rounded-br-3xl shadow-lg bg-[url('/assets/gaming1.jpg')] bg-cover bg-center shadow-red-400 p-4 flex flex-col"
             >

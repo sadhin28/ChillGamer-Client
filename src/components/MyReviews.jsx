@@ -1,9 +1,10 @@
 import { Link, useLoaderData } from "react-router-dom";
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import Swal from "sweetalert2";
 import { AuthContext } from "../provider/AuthProvider";
 import ReactStars from "react-stars";
-
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 const MyReviews = () => {
 
     const loadReviews = useLoaderData();
@@ -40,7 +41,12 @@ const MyReviews = () => {
             }
         });
     }
-
+       useEffect(() => {
+    AOS.init({
+      duration: 1000, // animation duration (in ms)
+      once: true,     // whether animation should happen only once - while scrolling down
+    });
+  }, []);
     return (
         <div className="w-11/12 mt-5 mb-5 mx-auto min-h-screen">
             <h1 className="font-bold md:text-2xl text-xl lg:text-4xl mt-10 mb-10 text-center">MY Reviews</h1>
@@ -48,7 +54,7 @@ const MyReviews = () => {
                 <div className=" grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-5">
                     {
                         userReviews.map(review => (
-                            <div key={review._id} className="rounded-tr-none rounded-bl-none rounded-tl-3xl rounded-br-3xl shadow-lg bg-[url('/assets/gaming1.jpg')] bg-cover bg-center shadow-red-400 p-4 flex flex-col">
+                            <div data-aos='zoom-in' key={review._id} className="rounded-tr-none rounded-bl-none rounded-tl-3xl rounded-br-3xl shadow-lg bg-[url('/assets/gaming1.jpg')] bg-cover bg-center shadow-red-400 p-4 flex flex-col">
                                 <img src={review.game_image} alt="game cover image" className="rounded-tr-none rounded-bl-none rounded-tl-3xl rounded-br-3xl w-full aspect-[5/3] object-cover" />
                                 <div className="mt-4 text-black flex flex-col bg-[rgba(255,255,255,0.3)] flex-grow gap-2 rounded-lg p-1">
                                     <h2 className="text-xl font-bold">Game Title: {review.game_title}</h2>
