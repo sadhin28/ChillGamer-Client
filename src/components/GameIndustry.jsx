@@ -4,7 +4,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 const GameIndustry = () => {
     return (
        <div className="my-16 px-4">
-  <h2 className="text-center  text-2xl md:text-4xl lg:text-5xl font-semibold text-gray-800 mb-10">
+  <h2 className="text-3xl font-bold mb-6 text-center py-2">
     Top 10 Game Maker Industries
   </h2>
 

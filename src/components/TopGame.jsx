@@ -7,7 +7,7 @@ import { EffectCoverflow, Autoplay } from "swiper/modules";
 const TopGame = () => {
     return (
         <div className="mt-10">
-            <h2 className="lg:text-5xl md:text-3xl text-xl font-medium text-center">The Best Games of 2025 You Can Try</h2>
+            <h2 className="md:text-3xl text-2xl font-bold mb-6 text-center py-2">The Best Games of 2025 You Can Try</h2>
             <div className="mt-5">
                 <Swiper
                     effect={"coverflow"}
