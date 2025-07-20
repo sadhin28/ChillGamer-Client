@@ -4,6 +4,7 @@ import TopGame from '../components/TopGame';
 import { useLoaderData } from 'react-router-dom';
 import LoadingSpiner from '../components/LoadingSpiner'
 import HighestRatedGame from '../components/HighestRatedGame';
+import GameIndustry from '../components/GameIndustry';
 
 export const HomeContext = createContext();
 
@@ -28,6 +29,7 @@ const Home = () => {
                <HighestRatedGame></HighestRatedGame>
             </HomeContext.Provider>
              <TopGame></TopGame>
+             <GameIndustry></GameIndustry>
         </div>
     );
 };
