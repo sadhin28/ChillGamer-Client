@@ -71,8 +71,4 @@ Chill Gamer is a clean, responsive, and user-friendly single-page application (S
 
 ---
 
-## 🔒 Environment Variables
 
-Store the following in `.env` files:
-
-### Client-side:
