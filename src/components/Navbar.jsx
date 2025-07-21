@@ -166,12 +166,14 @@ function Header() {
                 )}
 
                 <div className="flex items-center gap-2 md:gap-5">
+                    <div className="rounded-full h-10 w-10">
+                        {
+                        user ? <img className="rounded-full" src={user.photoURL} alt="" /> : <img className="rounded-full w-10" src={userLogo} ></img>
+                     }
+                    </div>
                     {
-                        user ? <img className="rounded-full h-10 w-10" src={user.photoURL} alt="" /> : <img className="rounded-full w-10" src={userLogo} ></img>
-                    }
-                    {
-                        user && user?.email ? <Link to="/" onClick={Logout} className="text-blue-200 font-bold border border-2xl p-1 rounded">Log-Out</Link> :
-                            <Link to='/login' className="text-blue-200 font-bold border border-2xl p-1 rounded">Log-In</Link>
+                        user && user?.email ? <Link to="/" onClick={Logout} className="text-blue-200 font-bold border border-2xl p-1 rounded">LogOut</Link> :
+                            <Link to='/login' className="text-blue-200 font-bold border border-2xl p-1 rounded">LogIn</Link>
                     }
                     <Link to='/register' className="text-blue-200 font-bold border border-2xl p-1 rounded">Register</Link>
                 </div>
