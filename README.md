@@ -69,6 +69,4 @@ Chill Gamer is a clean, responsive, and user-friendly single-page application (S
 - **Hosting:** Firebase (Client), Render (Server)
 - **Tools:**  dotenv, React Router, SweetAlert2, AOS, etc.
 
----
-
 
