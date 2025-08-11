@@ -37,7 +37,7 @@ const Home = () => {
     return <LoadingSpiner></LoadingSpiner>
   };
   return (
-    <div className={`w-11/12 mx-auto`}>
+    <div className={`w-11/12 mx-auto `}>
       <Slider></Slider>
   
       <HomeContext.Provider value={shortedReviews}>
