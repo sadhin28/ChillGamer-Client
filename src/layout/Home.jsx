@@ -7,10 +7,22 @@ import HighestRatedGame from '../components/HighestRatedGame';
 import GameIndustry from '../components/GameIndustry';
 import Faqs from '../components/Faqs';
 import { ThemeContext } from '../provider/ThemeProvider';
+import ThemeToggle from '../components/ToggleButton';
 
 export const HomeContext = createContext();
 
 const Home = () => {
+    const [darkMode, setDarkMode] = useState(false);
+
+  // Apply or remove dark mode class on <html>
+  useEffect(() => {
+    if (darkMode) {
+      document.documentElement.classList.add("dark");
+    } else {
+      document.documentElement.classList.remove("dark");
+    }
+  }, [darkMode]);
+
     const [loading, setLoading] = useState(true);
 
   const shortedReviews = useLoaderData();
@@ -25,8 +37,7 @@ const Home = () => {
     return <LoadingSpiner></LoadingSpiner>
   };
   return (
-    <div className='w-11/12 mx-auto'>
-          
+    <div className={`w-11/12 mx-auto`}>
       <Slider></Slider>
   
       <HomeContext.Provider value={shortedReviews}>
