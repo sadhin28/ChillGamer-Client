@@ -21,17 +21,17 @@ const router = createBrowserRouter([
             {
                 path:'/',
                 element:<Home></Home>,
-                loader:()=>fetch('https://chillgamer-server.onrender.com/top-rated')
+                loader:()=>fetch('https://chill-gamer-server-sigma-two.vercel.app/top-rated')
             },
             {
                 path:'/allreviews',
                 element:<AllReviews></AllReviews>,
-                loader:()=>fetch('https://chillgamer-server.onrender.com/reviews')
+                loader:()=>fetch('https://chill-gamer-server-sigma-two.vercel.app/reviews')
             },
              {
                 path: "/ReviewDetails/:id",
                 element:<ReviewDetails></ReviewDetails>,
-                loader: ({ params }) => fetch('https://chillgamer-server.onrender.com/reviews')
+                loader: ({ params }) => fetch('https://chill-gamer-server-sigma-two.vercel.app/reviews')
                     .then(res => res.json())
                     .then(reviews => reviews.find(review => review._id === params.id))
             },
@@ -42,17 +42,17 @@ const router = createBrowserRouter([
             {
                 path:'/myreviwe',
                 element:<Privateroute><MyReviews></MyReviews></Privateroute>,
-                 loader: () => fetch('https://chillgamer-server.onrender.com/reviews'),
+                 loader: () => fetch('https://chill-gamer-server-sigma-two.vercel.app/reviews'),
             },
             {
                 path:'/gamewatchlist',
                 element:<Privateroute><GameWatchList></GameWatchList></Privateroute>,
-                loader:()=>fetch('https://chillgamer-server.onrender.com/watch_list')
+                loader:()=>fetch('https://chill-gamer-server-sigma-two.vercel.app/watch_list')
             },
             {
                 path:'/updateReview/:id',
                 element:<Privateroute><Updaterivew></Updaterivew></Privateroute>,
-                 loader: ({ params }) => fetch(`https://chillgamer-server.onrender.com/reviews/${params.id}`)
+                 loader: ({ params }) => fetch(`https://chill-gamer-server-sigma-two.vercel.app/reviews/${params.id}`)
             },
             
             {

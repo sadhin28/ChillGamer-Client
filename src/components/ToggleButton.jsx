@@ -1,23 +1,13 @@
-import { useState, useEffect } from "react";
+import { useContext } from "react";
+import { ThemeContext } from "../provider/ThemeProvider";
 
 export default function ThemeToggle() {
-  const [theme, setTheme] = useState(
-    localStorage.getItem("theme") || "light"
-  );
-
-  useEffect(() => {
-    if (theme === "dark") {
-      document.documentElement.classList.add("dark");
-    } else {
-      document.documentElement.classList.remove("dark");
-    }
-    localStorage.setItem("theme", theme);
-  }, [theme]);
+  const { theme, toggleTheme } = useContext(ThemeContext);
 
   return (
     <button
-      onClick={() => setTheme(theme === "light" ? "dark" : "light")}
-      className="p-2 rounded border"
+      onClick={toggleTheme}
+      className="p-2 rounded border bg-opacity-20 bg-gray-700 hover:bg-gray-600 transition-colors"
     >
       {theme === "light" ? "🌙 Dark" : "☀️ Light"}
     </button>

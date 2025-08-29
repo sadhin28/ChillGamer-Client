@@ -24,7 +24,7 @@ const Lgoing = () => {
                 const lastSignInTime = result?.user?.metadata?.lastSignInTime
                 const loginInfo = { email, lastSignInTime }
                 //update user login time
-                fetch('https://chillgamer-server.onrender.com/user', {
+                fetch('https://chill-gamer-server-sigma-two.vercel.app/user', {
                     method: "PATCH",
                     headers: {
                         'content-type': 'application/json'

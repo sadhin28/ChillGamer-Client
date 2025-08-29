@@ -37,7 +37,7 @@ const Updaterivew = () => {
         const user_name = e.target.name.value;
         const newReview = { game_image, game_title, review, rating, publish_year, genres, user_email, user_name }
 
-        fetch(`https://chillgamer-server.onrender.com/reviews/${reviewForUpdate._id}`, {
+        fetch(`https://chill-gamer-server-sigma-two.vercel.app/reviews/${reviewForUpdate._id}`, {
             method: "PUT",
             headers: {
                 'content-type': 'application/json'

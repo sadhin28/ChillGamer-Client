@@ -24,7 +24,7 @@ const ReviewDetails = () => {
         const loggedUserEmail = user.email;
         const newWatchListData = { game_image, game_title, review, rating, publish_year, genres, user_email, user_name, loggedUserEmail, loggedUserName };
 
-        fetch('https://chillgamer-server.onrender.com/watch_list', {
+        fetch('https://chill-gamer-server-sigma-two.vercel.app/watch_list', {
             method: 'post',
             headers: {
                 'content-type': 'application/json'

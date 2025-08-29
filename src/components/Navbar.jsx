@@ -4,6 +4,8 @@ import { VscClose } from "react-icons/vsc";
 import { CiSearch } from "react-icons/ci";
 import { Link, NavLink } from "react-router-dom";
 import userLogo from '../assets/image.png'
+import ThemeToggle from './ToggleButton';
+import { ThemeContext } from "../provider/ThemeProvider";
 
 
 
@@ -29,6 +31,7 @@ const COLORS_TOP = ["#29C48BFF", "#DF1767FF", "#184B9BFF", "#AC0BC5FF", "#949823
 
 function Header() {
     const { user, Logout } = useContext(AuthContext)
+    const { theme, toggleTheme } = useContext(ThemeContext)
 
     const navItems = [
         { label: "Home", link: "/" },
@@ -166,6 +169,7 @@ function Header() {
                 )}
 
                 <div className="flex items-center gap-2 md:gap-5">
+                    <ThemeToggle />
                     <div className="rounded-full h-10 w-10">
                         {
                         user ? <img className="rounded-full" src={user.photoURL} alt="" /> : <img className="rounded-full w-10" src={userLogo} ></img>

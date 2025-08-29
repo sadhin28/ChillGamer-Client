@@ -23,7 +23,7 @@ const MyReviews = () => {
             confirmButtonText: "Confirm Delete"
         }).then((result) => {
             if (result.isConfirmed) {
-                fetch(`https://chillgamer-server.onrender.com/reviews/${_id}`, {
+                fetch(`https://chill-gamer-server-sigma-two.vercel.app/reviews/${_id}`, {
                     method: 'DELETE'
                 })
                     .then(res => res.json())

@@ -7,22 +7,11 @@ import HighestRatedGame from '../components/HighestRatedGame';
 import GameIndustry from '../components/GameIndustry';
 import Faqs from '../components/Faqs';
 import { ThemeContext } from '../provider/ThemeProvider';
-import ThemeToggle from '../components/ToggleButton';
 
 export const HomeContext = createContext();
 
 const Home = () => {
-    const [darkMode, setDarkMode] = useState(false);
-
-  // Apply or remove dark mode class on <html>
-  useEffect(() => {
-    if (darkMode) {
-      document.documentElement.classList.add("dark");
-    } else {
-      document.documentElement.classList.remove("dark");
-    }
-  }, [darkMode]);
-
+    const { theme } = useContext(ThemeContext);
     const [loading, setLoading] = useState(true);
 
   const shortedReviews = useLoaderData();

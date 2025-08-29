@@ -33,7 +33,7 @@ const Register = () => {
     const photoUrl =e.target.photo.value
     
     const data ={name,email,photoUrl}
-    fetch('https://chillgamer-server.onrender.com/user',{
+    fetch('https://chill-gamer-server-sigma-two.vercel.app/user',{
             method:"POST",
             headers:{
                 'content-type':'application/json'
