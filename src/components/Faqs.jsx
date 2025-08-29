@@ -41,14 +41,14 @@ function Faqs() {
 
                         key={idx}
                         header={
-                            <div className="flex rounded-lg justify-between items-center w-full text-left font-medium text-lg text-gray-800">
+                            <div className="flex rounded-lg justify-between items-center w-full text-left font-medium text-lg text-black">
                                 {faq.question}
                                 <ChevronDown className="ml-2 shrink-0 transition-transform duration-200 accordion-chevron text-blue-500" />
                             </div>
                         }
                         className=" rounded-t-lg overflow-hidden"
                         contentProps={{
-                            className: "p-4 text-gray-600 bg-gray-50",
+                            className: "p-4 text-black ",
                         }}
                         buttonProps={{
                             className:

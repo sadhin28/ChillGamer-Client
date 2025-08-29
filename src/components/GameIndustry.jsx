@@ -81,8 +81,8 @@ const GameIndustry = () => {
               className="w-full aspect-video object-cover"
             />
             <div className="p-4">
-              <h3 className="text-lg font-bold text-gray-800 mb-1">{item.title}</h3>
-              <p className="text-sm text-gray-600">{item.desc}</p>
+              <h3 className="text-lg font-bold text-black mb-1">{item.title}</h3>
+              <p className="text-sm text-black">{item.desc}</p>
             </div>
           </div>
         </SwiperSlide>

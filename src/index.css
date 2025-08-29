@@ -28,14 +28,16 @@ body {
 
 /* Additional dark mode styles */
 .dark body {
-  background-color: #121212;
-  color: #ffffff;
+  background-color: #000000;
+  color: #f6f8f9;
+
 }
 
 .dark .bg-white {
-  background-color: #1f1f1f !important;
+  background-color: #000000da !important;
+  color: #050000 !important;
 }
 
 .dark .text-black {
-  color: #e0e0e0 !important;
+  color: #f5f5f5 !important;
 }
