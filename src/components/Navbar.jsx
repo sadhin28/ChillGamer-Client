@@ -31,7 +31,6 @@ const COLORS_TOP = ["#29C48BFF", "#DF1767FF", "#184B9BFF", "#AC0BC5FF", "#949823
 
 function Header() {
     const { user, Logout } = useContext(AuthContext)
-    const { theme, toggleTheme } = useContext(ThemeContext)
 
     const navItems = [
         { label: "Home", link: "/" },
@@ -99,8 +98,12 @@ function Header() {
         >
 
             <div className="width  items-center padding-x flex gap-10 justify-between">
-                <div className="flex  gap-5 justify-center  justify-items-center">
-
+                <div className="flex  gap-5 justify-center items-center  justify-items-center">
+                     <div className="rounded-full h-10 w-10">
+                        {
+                        user ? <img className="rounded-full" src={user.photoURL} alt="" /> : <img className="rounded-full w-10" src={userLogo} ></img>
+                     }
+                    </div>
                     <div className="font-semibold text-lg text-nowrap">Chill Gamer</div>
 
 
@@ -123,7 +126,9 @@ function Header() {
                             )}
                         >
                             <div className="flex items-center text-white justify-between">
+                                
                                 <h1 className="font-semibold text-xl text-nowrap">
+                                    
                                     Chill Gamer
                                 </h1>
 
@@ -170,11 +175,7 @@ function Header() {
 
                 <div className="flex items-center gap-2 md:gap-5">
                     <ThemeToggle />
-                    <div className="rounded-full h-10 w-10">
-                        {
-                        user ? <img className="rounded-full" src={user.photoURL} alt="" /> : <img className="rounded-full w-10" src={userLogo} ></img>
-                     }
-                    </div>
+                   
                     {
                         user && user?.email ? <Link to="/" onClick={Logout} className="text-blue-200 font-bold border border-2xl p-1 rounded">LogOut</Link> :
                             <Link to='/login' className="text-blue-200 font-bold border border-2xl p-1 rounded">LogIn</Link>
