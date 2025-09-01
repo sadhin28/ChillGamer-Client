@@ -91,7 +91,7 @@ function Header() {
             }}
             className={cn(
                  
-                "py-5 text-xs md:text-xs lg:text-xl px-5  text-white  z-20 transition-shadow duration-300",
+                "py-3 text-xs md:text-xl md:px-10  px-2  text-white  z-20 transition-shadow duration-300",
                 isSticky ? "fixed top-0 left-0 w-full bg-gradient-to-br from-black via-gray-900 to-gray-800 backdrop-blur-md shadow-md z-50" : "bg-gradient-to-br from-black via-gray-900 to-gray-800",
                 isMobile ? "shadow-sm  px-5" : ""
             )}
@@ -104,7 +104,7 @@ function Header() {
                         user ? <img className="rounded-full" src={user.photoURL} alt="" /> : <img className="rounded-full w-10" src={userLogo} ></img>
                      }
                     </div>
-                    <div className="font-semibold text-lg text-nowrap">Chill Gamer</div>
+                    <div className="font-semibold text-xs md:text-xl text-nowrap">Chill Gamer</div>
 
 
 
