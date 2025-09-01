@@ -18,14 +18,14 @@ const GameWatchList = () => {
         .then(res => res.json())
         .then(data => {
             if (data.deletedCount > 0) {
-                setWatchListData(prev => prev.filter(item => item._id !== _id));
+                setWatchListData(prev => prev.filter(item => item?._id !== _id));
             }
         });
     };
 
     return (
         <>
-            {watchListData.length > 0 ? (
+            {watchListData?.length > 0 ? (
                 <div className="min-h-screen flex">
                     <div className="w-full   overflow-hidden shadow-xl bg-gradient-to-br from-black via-gray-900 to-gray-800 px-5 py-5">
                         <h2 className="text-3xl font-bold text-white mb-6">My Game Watchlist</h2>
@@ -43,24 +43,24 @@ const GameWatchList = () => {
                                 <tbody>
                                     {watchListData.map((item, index) => (
                                         <tr
-                                            key={item._id}
+                                            key={item?._id}
                                             className="bg-white/10 hover:bg-white/20 text-white rounded-xl"
                                         >
                                             <td className="px-4 py-3">{index + 1}</td>
-                                            <td className="px-4 py-3 font-medium">{item.game_title}</td>
+                                            <td className="px-4 py-3 font-medium">{item?.game_title}</td>
                                             <td className="px-4 py-3">
                                                 <ReactStars
                                                     count={5}
-                                                    value={item.rating}
+                                                    value={item?.rating}
                                                     size={20}
                                                     edit={false}
                                                     activeColor="#ffd700"
                                                 />
                                             </td>
-                                            <td className="px-4 py-3">{item.genres}</td>
+                                            <td className="px-4 py-3">{item?.genres}</td>
                                             <td className="px-4 py-3 text-center">
                                                 <button
-                                                    onClick={() => handleDeleteWL(item._id)}
+                                                    onClick={() => handleDeleteWL(item?._id)}
                                                     className="text-red-500 hover:text-red-700 transition-colors duration-200 text-2xl"
                                                 >
                                                     <MdDeleteForever />
