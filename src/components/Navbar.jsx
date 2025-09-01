@@ -98,8 +98,9 @@ function Header() {
         >
 
             <div className="width  items-center padding-x flex gap-10 justify-between">
-                <div className="flex  gap-5 justify-center items-center  justify-items-center">
-                     <div className="rounded-full h-10 w-10">
+                
+                <div className="flex  gap-2 md:gap-5 justify-center items-center  justify-items-center">
+                     <div className="rounded-full md:h-10 md:w-10 h-8 w-8">
                         {
                         user ? <img className="rounded-full" src={user.photoURL} alt="" /> : <img className="rounded-full w-10" src={userLogo} ></img>
                      }
@@ -117,14 +118,18 @@ function Header() {
                 ) : null}
 
                 {isMobile ? (
-                    <>
-                        <Overlay isOpen={isOpen} onClose={onClose} />
+                    
+                    <div>
+                     <Overlay isOpen={isOpen} onClose={onClose} />
+                       
                         <aside
+                        
                             className={cn(
                                 "h-screen  fixed top-0 right-0 w-[18rem] shadow-sm bg-base-100 z-40 transition-all duration-300 p-10",
                                 isOpen ? "translate-x-0" : "translate-x-full"
                             )}
                         >
+                            
                             <div className="flex items-center text-white justify-between">
                                 
                                 <h1 className="font-semibold text-xl text-nowrap">
@@ -154,7 +159,7 @@ function Header() {
                                 ))}
                             </ul>
                         </aside>
-                    </>
+                    </div>
                 ) : (
                     <nav className="">
                         <ul className="flex items-center  gap-7">
